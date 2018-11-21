@@ -1,5 +1,5 @@
 ## RxEasyHttp
-以下是修改版本
+修改版 README
 
 # Quick Start
 [![](https://jitpack.io/v/DragonsQC/RxEasyHttp.svg)](https://jitpack.io/#DragonsQC/RxEasyHttp)
