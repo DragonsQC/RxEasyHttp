@@ -1,4 +1,32 @@
 ## RxEasyHttp
+以下是修改版本
+
+# Quick Start
+[![](https://jitpack.io/v/DragonsQC/QLibrary.svg)](https://jitpack.io/#DragonsQC/QLibrary)
+
+Step 1. Add the JitPack repository to your build file
+
+Add it in your root build.gradle at the end of repositories:
+
+```
+allprojects {
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+
+Step 2. Add the dependency
+
+```
+dependencies {
+    compile 'com.github.DragonsQC:QLibrary:{X.X.X}'
+}
+```
+
+## RxEasyHttp
+以下是原版 README
 
 本库是一款基于RxJava2+Retrofit2实现简单易用的网络请求框架，结合android平台特性的网络封装库,采用api链式调用一点到底,集成cookie管理,多种缓存模式,极简https配置,上传下载进度显示,请求错误自动重试,请求携带token、时间戳、签名sign动态配置,自动登录成功后请求重发功能,3种层次的参数设置默认全局局部,默认标准ApiResult同时可以支持自定义的数据结构，已经能满足现在的大部分网络请求。
 *注：Retrofit和Rxjava是当下非常火爆的开源框架，均来自神一般的公司。本库就不介绍Retrofit和Rxjava2的用法。*
