@@ -92,20 +92,20 @@ public class DownloadSubscriber<ResponseBody extends okhttp3.ResponseBody> exten
     private boolean writeResponseBodyToDisk(String path, String name, Context context, okhttp3.ResponseBody body) {
         HttpLog.d("contentType:>>>>" + body.contentType().toString());
         if (!TextUtils.isEmpty(name)) {//text/html; charset=utf-8
-            String type;
-            if (!name.contains(".")) {
-                type = body.contentType().toString();
-                if (type.equals(APK_CONTENTTYPE)) {
-                    fileSuffix = ".apk";
-                } else if (type.equals(PNG_CONTENTTYPE)) {
-                    fileSuffix = ".png";
-                } else if (type.equals(JPG_CONTENTTYPE)) {
-                    fileSuffix = ".jpg";
-                } else {
-                    fileSuffix = "." + body.contentType().subtype();
-                }
-                name = name + fileSuffix;
-            }
+            //String type;
+            //if (!name.contains(".")) {
+            //    type = body.contentType().toString();
+            //    if (type.equals(APK_CONTENTTYPE)) {
+            //        fileSuffix = ".apk";
+            //    } else if (type.equals(PNG_CONTENTTYPE)) {
+            //        fileSuffix = ".png";
+            //    } else if (type.equals(JPG_CONTENTTYPE)) {
+            //        fileSuffix = ".jpg";
+            //    } else {
+            //        fileSuffix = "." + body.contentType().subtype();
+            //    }
+            //    name = name + fileSuffix;
+            //}
         } else {
             name = System.currentTimeMillis() + fileSuffix;
         }
@@ -160,14 +160,14 @@ public class DownloadSubscriber<ResponseBody extends okhttp3.ResponseBody> exten
                                 Observable.just(finalFileSizeDownloaded).observeOn(AndroidSchedulers.mainThread())
                                         .subscribe(new Consumer<Long>() {
                                             @Override
-                                            public void accept(@NonNull Long aLong) throws Exception {
+                                            public void accept(@NonNull Long aLong) {
                                                 if (callBack instanceof DownloadProgressCallBack) {
                                                     ((DownloadProgressCallBack) callBack).update(finalFileSizeDownloaded, fileSize, finalFileSizeDownloaded == fileSize);
                                                 }
                                             }
                                         }, new Consumer<Throwable>() {
                                             @Override
-                                            public void accept(@NonNull Throwable throwable) throws Exception {
+                                            public void accept(@NonNull Throwable throwable) {
 
                                             }
                                         });
@@ -185,14 +185,14 @@ public class DownloadSubscriber<ResponseBody extends okhttp3.ResponseBody> exten
                     final String finalPath = path;
                     Observable.just(finalPath).observeOn(AndroidSchedulers.mainThread()).subscribe(new Consumer<String>() {
                         @Override
-                        public void accept(@NonNull String s) throws Exception {
+                        public void accept(@NonNull String s) {
                             if (callBack instanceof DownloadProgressCallBack) {
                                 ((DownloadProgressCallBack) callBack).onComplete(finalPath);
                             }
                         }
                     }, new Consumer<Throwable>() {
                         @Override
-                        public void accept(@NonNull Throwable throwable) throws Exception {
+                        public void accept(@NonNull Throwable throwable) {
 
                         }
                     });
@@ -227,14 +227,14 @@ public class DownloadSubscriber<ResponseBody extends okhttp3.ResponseBody> exten
         //if (Utils.checkMain()) {
         Observable.just(new ApiException(e, 100)).observeOn(AndroidSchedulers.mainThread()).subscribe(new Consumer<ApiException>() {
             @Override
-            public void accept(@NonNull ApiException e) throws Exception {
+            public void accept(@NonNull ApiException e) {
                 if (mCallBack != null) {
                     mCallBack.onError(e);
                 }
             }
         }, new Consumer<Throwable>() {
             @Override
-            public void accept(@NonNull Throwable throwable) throws Exception {
+            public void accept(@NonNull Throwable throwable) {
 
             }
         });
