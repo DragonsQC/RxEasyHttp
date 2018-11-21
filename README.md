@@ -1,6 +1,7 @@
 ## RxEasyHttp
 修改版 README
-# [Change Log](CHANGELOG.md)
+[Change Log](CHANGELOG.md)
+ 
 # Quick Start
 [![](https://jitpack.io/v/DragonsQC/RxEasyHttp.svg)](https://jitpack.io/#DragonsQC/RxEasyHttp)
 
